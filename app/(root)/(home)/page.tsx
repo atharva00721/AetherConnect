@@ -1,3 +1,5 @@
+"use client";
+
 import MeetingTypeList from "@/components/meetingTypeList";
 import React from "react";
 
