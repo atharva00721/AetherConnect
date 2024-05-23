@@ -20,7 +20,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { LayoutList, Users2Icon } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
 import Loader from "./Loader";
 
@@ -34,6 +34,7 @@ const MeetingRoom = () => {
   const [showParticipants, setShowParticipants] = useState(false);
 
   const callingState = useCallCallingState();
+  const router = useRouter();
 
   if(callingState !== CallingState.JOINED) return
   <Loader />
@@ -62,7 +63,7 @@ const MeetingRoom = () => {
           <CallParticipantsList onClose={() => setShowParticipants(false)} />
         </div>
         <div className="mb-3 fixed bottom-0 flex w-full items-center justify-center flex-wrap">
-          <CallControls />
+          <CallControls onLeave={() => router.push('/')}/>
           <DropdownMenu>
             <div className="flex items-center mx-3">
               <DropdownMenuTrigger className="cursor-pointer rounded-2xl bg-[#19232d] px-4 hover:bg-[#4c535b]">
