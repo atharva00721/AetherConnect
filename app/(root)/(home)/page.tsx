@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import MeetingTypeList from "@/components/meetingTypeList";
 import React from "react";
@@ -21,7 +21,7 @@ const Home = () => {
             Up Coming Meeting At: 12:00 PM
           </h2>
           <div className="flex flex-col gap-2">
-            <h1 className="text-4xl font-extrabold lg:text-7xl">{time}</h1>
+            <h1 className="text-4xl font-extrabold lg:text-7xl uppercase">{time}</h1>
             <p className="text-lg font-medium text-sky-1">{date}</p>
           </div>
         </div>

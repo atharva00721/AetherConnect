@@ -7,6 +7,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Arther Connet",
   description: "Arther Connet A Video Call App",
+  icons: {
+    icon: '/image/aether.png',
+  }
 };
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {

@@ -3,12 +3,16 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
+import "react-datepicker/dist/react-datepicker.css";
 import type { Metadata } from "next";
 import { dark, neobrutalism, shadesOfPurple } from "@clerk/themes";
 
 export const metadata: Metadata = {
   title: "Arther Connet",
   description: "Arther Connet A Video Call App",
+  icons: {
+    icon: "/public/images/aether.png",
+  },
 };
 const inter = Inter({ subsets: ["latin"] });
 
