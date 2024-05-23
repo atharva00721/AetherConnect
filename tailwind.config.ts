@@ -60,6 +60,10 @@ const config = {
       backgroundImage: {
         hero: "url('/images/hero-background.jpg')",
       },
+      screens: {
+        'mini': '407px',
+      },
+  
     },
   },
   plugins: [require('tailwindcss-animate')],

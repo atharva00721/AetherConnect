@@ -21,7 +21,7 @@ const EndCallButton = () => {
   if (!isMeetingOwner) return null;
   return (
     <Button
-      className="cursor-pointer rounded-2xl px-4 hover:bg-red-400 bg-red-500"
+      className="cursor-pointer rounded-2xl px-4 hover:bg-red-400 bg-red-500 max-mini:mt-5"
       onClick={async () => {
         await call.endCall();
         router.push("/");
