@@ -24,15 +24,13 @@ const MeetingSetup = ({
 
   const call = useCall();
 
+  const [isMicCamToggled, setIsMicCamToggled] = useState(false);
   if (!call) {
     <Alert
         title={`Your Meeting Link is invalid. Please check the link and try again.`}
       />
       return null
   }
-
-  const [isMicCamToggled, setIsMicCamToggled] = useState(false);
-
   useEffect(() => {
     if (isMicCamToggled) {
       call.camera.disable();
@@ -42,6 +40,8 @@ const MeetingSetup = ({
       call.microphone.enable();
     }
   }, [isMicCamToggled, call.camera, call.microphone]);
+
+
 
   if (callTimeNotArrived)
     return (
