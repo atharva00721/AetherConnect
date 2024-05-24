@@ -2,7 +2,6 @@
 
 import MeetingTypeList from "@/components/meetingTypeList";
 import React from "react";
-
 const Home = () => {
   const now = new Date();
 

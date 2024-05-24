@@ -8,6 +8,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
+import Alert from "./Alert";
 
 const MeetingSetup = ({
   setIsSetupComplete,
@@ -18,9 +19,9 @@ const MeetingSetup = ({
   const [isMicCamToggled, setIsMicCamToggled] = useState(false);
   const call = useCall();
   if (!call) {
-    throw new Error(
-      "useStreamCall must be used within a StreamCall component."
-    );
+    <Alert
+      title={`Your Meeting Link is Invalid`}
+    />;
   }
 
   useEffect(() => {
