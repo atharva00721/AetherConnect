@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
 import type { Metadata } from "next";
+import { ThemeProvider } from 'next-themes'
 import { dark, neobrutalism, shadesOfPurple } from "@clerk/themes";
 
 export const metadata: Metadata = {

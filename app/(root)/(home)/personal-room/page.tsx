@@ -22,8 +22,8 @@ const Table = ({
       <h1 className="text-base font-medium text-sky-1 lg:text-xl xl:min-w-32">
         {title}:
       </h1>
-      <h1 className="truncate text-sm font-bold max-sm:max-w-[320px] lg:text-xl md:max-w-[300px]">
-        {description}
+      <h1 className="truncate text-sm font-bold max-md:max-w-[320px] lg:text-xl md:max-w-[300px]">
+        {description}  
       </h1>
     </div>
   );
@@ -54,7 +54,7 @@ const PersonalRoom = () => {
   return (
     <Card
       shadow="sm"
-      className="flex size-full flex-col gap-10 bg-dark-1 px-3 py-2 rounded-lg max-md:max-w-[400px]"
+      className="flex size-full flex-col gap-10 bg-dark-1 px-3 py-2 rounded-lg max-:max-w-[400px]"
     >
       <CardHeader className="flex gap-3">
         <div className="glassmorphism p-2 rounded-lg">

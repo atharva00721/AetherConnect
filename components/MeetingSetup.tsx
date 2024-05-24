@@ -7,6 +7,8 @@ import {
 } from "@stream-io/video-react-sdk";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
+
 
 const MeetingSetup = ({
   setIsSetupComplete,
@@ -14,12 +16,12 @@ const MeetingSetup = ({
   setIsSetupComplete: (value: boolean) => void;
 }) => {
   const [isMicCamToggled, setIsMicCamToggled] = useState(false);
-
+  const router = useRouter();
   const call = useCall();
   if (!call) {
-    throw new Error(
-      "useStreamCall must be used within a StreamCall component."
-    );
+    const router = useRouter();
+    router.push('/Error');
+    return null;
   }
 
   useEffect(() => {
