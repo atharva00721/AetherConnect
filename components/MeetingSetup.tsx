@@ -9,18 +9,16 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 
-
 const MeetingSetup = ({
   setIsSetupComplete,
 }: {
   setIsSetupComplete: (value: boolean) => void;
 }) => {
-  const [isMicCamToggled, setIsMicCamToggled] = useState(false);
   const router = useRouter();
+  const [isMicCamToggled, setIsMicCamToggled] = useState(false);
   const call = useCall();
   if (!call) {
-    const router = useRouter();
-    router.push('/Error');
+    router.push("/Error");
     return null;
   }
 
