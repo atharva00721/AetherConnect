@@ -1,14 +1,14 @@
-'use client';
-import { useEffect, useState } from 'react';
+"use client";
+import { useEffect, useState } from "react";
 import {
   DeviceSettings,
   VideoPreview,
   useCall,
   useCallStateHooks,
-} from '@stream-io/video-react-sdk';
+} from "@stream-io/video-react-sdk";
 
-import Alert from './Alert';
-import { Button } from './ui/button';
+import Alert from "./Alert";
+import { Button } from "./ui/button";
 
 const MeetingSetup = ({
   setIsSetupComplete,
@@ -26,10 +26,19 @@ const MeetingSetup = ({
 
   const [isMicCamToggled, setIsMicCamToggled] = useState(false);
   if (!call) {
-    <Alert
-        title={`Your Meeting Link is invalid. Please check the link and try again.`}
-      />
-      return null
+    if (!call) {
+      return (
+        <>
+          <Alert
+            title={`Your Meeting Link is invalid. Please check the link and try again.`}
+          />
+          console.error(
+            "useStreamCall must be used within a StreamCall component."
+          );
+          return;
+        </>
+      );
+    }
   }
   useEffect(() => {
     if (isMicCamToggled) {
@@ -40,8 +49,6 @@ const MeetingSetup = ({
       call.microphone.enable();
     }
   }, [isMicCamToggled, call.camera, call.microphone]);
-
-
 
   if (callTimeNotArrived)
     return (
