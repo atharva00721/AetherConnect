@@ -1,8 +1,9 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@nextui-org/button";
 
-import { Button } from './ui/button';
-import { Card, CardContent } from './ui/card';
+import { Card, CardContent } from "./ui/card";
+import { useRouter } from "next/navigation";
 
 interface PermissionCardProps {
   title: string;
@@ -10,6 +11,7 @@ interface PermissionCardProps {
 }
 
 const Alert = ({ title, iconUrl }: PermissionCardProps) => {
+  const route = useRouter();
   return (
     <section className="flex-center h-screen w-full">
       <Card className="w-full max-w-[520px] border-none bg-dark-1 p-6 py-9 text-white">
@@ -24,8 +26,8 @@ const Alert = ({ title, iconUrl }: PermissionCardProps) => {
               <p className="text-center text-xl font-semibold">{title}</p>
             </div>
 
-            <Button asChild className="bg-blue-1">
-              <Link href="/">Back to Home</Link>
+            <Button className="bg-blue-1" onClick={() => route.push("/")}>
+              Back to Home
             </Button>
           </div>
         </CardContent>
