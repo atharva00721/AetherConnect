@@ -8,7 +8,7 @@ import MeetingCard from "./MeetingCard";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
+const CallList = ({ type, limit }: { type: "ended" | "upcoming" | "recordings", limit?: number }) => {
   const router = useRouter();
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
     useGetCalls();
@@ -21,7 +21,10 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
       case "recordings":
         return recordings;
       case "upcoming":
-        return upcomingCalls;
+        const sortedUpcomingCalls = [...(upcomingCalls ?? [])].sort((a, b) => 
+          ((a.state.startsAt && new Date(a.state.startsAt)?.getTime()) ?? 0) - ((b.state.startsAt && new Date(b.state.startsAt)?.getTime()) ?? 0)
+        );
+        return limit ? sortedUpcomingCalls.slice(0, limit) : sortedUpcomingCalls;
       default:
         return [];
     }
