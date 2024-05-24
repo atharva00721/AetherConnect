@@ -33,7 +33,6 @@ const MeetingSetup = ({
   }
 
   const [isMicCamToggled, setIsMicCamToggled] = useState(false);
-
   useEffect(() => {
     if (isMicCamToggled) {
       call.camera.disable();
@@ -43,6 +42,7 @@ const MeetingSetup = ({
       call.microphone.enable();
     }
   }, [isMicCamToggled, call.camera, call.microphone]);
+
 
   if (callTimeNotArrived)
     return (
