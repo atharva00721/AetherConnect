@@ -24,22 +24,14 @@ const MeetingSetup = ({
 
   const call = useCall();
 
-  const [isMicCamToggled, setIsMicCamToggled] = useState(false);
   if (!call) {
-    if (!call) {
-      return (
-        <>
-          <Alert
-            title={`Your Meeting Link is invalid. Please check the link and try again.`}
-          />
-          console.error(
-            "useStreamCall must be used within a StreamCall component."
-          );
-          return;
-        </>
-      );
-    }
+    throw new Error(
+      "useStreamCall must be used within a StreamCall component."
+    );
   }
+
+  const [isMicCamToggled, setIsMicCamToggled] = useState(false);
+
   useEffect(() => {
     if (isMicCamToggled) {
       call.camera.disable();
