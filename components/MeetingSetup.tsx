@@ -18,7 +18,7 @@ const MeetingSetup = ({
   const [isMicCamToggled, setIsMicCamToggled] = useState(false);
   const call = useCall();
   if (!call) {
-    router.push("/Error");
+    router.push("/oops");
     return null;
   }
 
