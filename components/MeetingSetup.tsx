@@ -28,6 +28,7 @@ const MeetingSetup = ({
     <Alert
         title={`Your Meeting Link is invalid. Please check the link and try again.`}
       />
+      return null
   }
 
   const [isMicCamToggled, setIsMicCamToggled] = useState(false);
