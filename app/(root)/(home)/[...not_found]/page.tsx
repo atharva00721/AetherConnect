@@ -1,5 +1,4 @@
-import { notFound } from "next/navigation";
-import Marquee from "@/components/magicui/marquee";
+
 import { WobbleCard } from "@/components/ui/wobble-card";
 
 export default function NotFoundCatchAll() {
