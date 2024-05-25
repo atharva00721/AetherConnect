@@ -8,7 +8,7 @@ import Logo from '../../public/images/aether.png';
 
 const Navbar = () => {
   return (
-    <nav className="justify-between items-center hidden fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10 max-lg:flex">
+    <nav className="justify-between items-center hidden fixed z-50 w-full glassmorphism2 px-6 py-4 lg:px-10 max-lg:flex">
       <Link href={"/"} className="flex items-center gap-1">
         {/* <Image
           src={Logo}

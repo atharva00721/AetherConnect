@@ -43,7 +43,6 @@ const Home = () => {
             <h1 className="text-5xl font-extrabold lg:text-7xl uppercase">
               <Clock
                 format={"h:mm"}
-                // style={{ fontSize: "1.5em" }}
                 ticking={true}
               />
             </h1>
