@@ -35,7 +35,7 @@ const Home = () => {
     <section className="flex size-full flex-col gap-10 my-0">
       <div className="h-[300px] w-full rounded-[20px] bg-hero bg-cover">
         <div className="flex h-full flex-col justify-between max-lg:px-5 max-lg:py-8 lg:p-11">
-          <h2 className="glassmorphism max-w-[80px] rounded-lg py-2 text-center text-base text-[#f1f1f1] font-bold">
+          <h2 className="glassmorphism max-w-[80px] rounded-lg py-2 text-center text-base text-sky-1 font-bold">
             {dayOfWeek}
           </h2>
           <div className="flex flex-col gap-2">

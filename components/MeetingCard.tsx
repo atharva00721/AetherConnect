@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { Copy } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
+import { Button, ButtonGroup } from "@nextui-org/react";
 import { avatarImages } from "@/constants";
 import { useToast } from "./ui/use-toast";
 
@@ -42,8 +43,11 @@ const MeetingCard = ({
       </article>
       <article className={cn("flex justify-start relative", {})}>
         {!isPreviousMeeting && (
-          <div className="flex gap-2">
-            <Button onClick={handleClick} className="rounded bg-blue-1 px-6">
+          <ButtonGroup>
+            <Button
+              onClick={handleClick}
+              className="rounded-l-lg bg-blue-1 px-6"
+            >
               {buttonIcon1 && (
                 <Image src={buttonIcon1} alt="feature" width={20} height={20} />
               )}
@@ -56,17 +60,12 @@ const MeetingCard = ({
                   title: "Link Copied",
                 });
               }}
-              className="bg-dark-4 px-6"
+              className="bg-dark-4 px-6 rounded-r-lg"
             >
-              <Image
-                src="/icons/copy.svg"
-                alt="feature"
-                width={20}
-                height={20}
-              />
+              <Copy />
               &nbsp; Copy Link
             </Button>
-          </div>
+          </ButtonGroup>
         )}
       </article>
     </section>

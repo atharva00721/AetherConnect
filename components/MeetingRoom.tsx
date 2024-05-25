@@ -1,13 +1,12 @@
 import {
+  Dropdown,
+  DropdownTrigger,
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  DropdownSection,
+  DropdownItem,
+  Button,
+} from "@nextui-org/react";
 import {
-  CallControls,
   CallingState,
   CallParticipantsList,
   CallStatsButton,
@@ -18,12 +17,11 @@ import {
 import React from "react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
 import { LayoutList, Users2Icon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
 import Loader from "./Loader";
-
+import { CallControls } from "./ui/CallControls";
 type CallLayout = "speaker-left" | "speaker-right" | "grid";
 
 const MeetingRoom = () => {
@@ -36,8 +34,8 @@ const MeetingRoom = () => {
   const callingState = useCallCallingState();
   const router = useRouter();
 
-  if(callingState !== CallingState.JOINED) return
-  <Loader />
+  if (callingState !== CallingState.JOINED) return;
+  <Loader />;
 
   const CallLayout = () => {
     switch (Layout) {
@@ -49,6 +47,7 @@ const MeetingRoom = () => {
         return <SpeakerLayout participantsBarPosition="right" />;
     }
   };
+
   return (
     <section className="relative h-screen w-full overflow-hidden pt-4 text-white">
       <div className="relative flex size-full items-center justify-center">
@@ -62,40 +61,40 @@ const MeetingRoom = () => {
         >
           <CallParticipantsList onClose={() => setShowParticipants(false)} />
         </div>
-        <div className="mb-3 fixed bottom-0 flex w-full items-center justify-center flex-wrap">
-          <CallControls onLeave={() => router.push('/')}/>
-          <DropdownMenu>
+        <div className="glassmorphism2 md:mb-3 fixed bottom-0 flex  items-center justify-center flex-wrap px-10 py-2 max-md:px-1 max-md:max-w[200px] rounded-xl">
+          <CallControls onLeave={() => router.push("/")} />
+          <Dropdown>
             <div className="flex items-center mx-3">
-              <DropdownMenuTrigger className="cursor-pointer rounded-2xl bg-[#19232d] px-4 hover:bg-[#4c535b]">
+              <DropdownTrigger className="cursor-pointer rounded-2xl bg-[#19232d] px-4 hover:bg-[#4c535b]">
                 <Button>
                   <LayoutList size={20} />
                 </Button>
-              </DropdownMenuTrigger>
+              </DropdownTrigger>
             </div>
 
-            <DropdownMenuContent className="border-dark-1 bg-dark-1">
-              <DropdownMenuLabel>Layouts</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {["Grid", "Speaker Right", "Speaker Left"].map((item, index) => (
-                <div key={index}>
-                  <DropdownMenuItem
-                    className="hover:bg-dark-2"
-                    onClick={() =>
-                      setLayout(
-                        item === "Grid"
-                          ? "grid"
-                          : item === "Speaker Right"
-                          ? "speaker-right"
-                          : "speaker-left"
-                      )
-                    }
-                  >
-                    {item}
-                  </DropdownMenuItem>
-                </div>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+            <DropdownMenu className="border-dark-1 bg-dark-1 rounded-xl">
+              <DropdownItem
+                className="hover:bg-dark-2 rounded-lg"
+                onClick={() => setLayout("grid")}
+              >
+                Grid
+              </DropdownItem>
+
+              <DropdownItem
+                className="hover:bg-dark-2 rounded-lg"
+                onClick={() => setLayout("speaker-right")}
+              >
+                Speaker Right
+              </DropdownItem>
+
+              <DropdownItem
+                className="hover:bg-dark-2 rounded-lg"
+                onClick={() => setLayout("speaker-left")}
+              >
+                Speaker Left
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
           <CallStatsButton />
           <Button
             onClick={(e) => setShowParticipants((prev) => !prev)}
