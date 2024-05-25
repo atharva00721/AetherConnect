@@ -5,6 +5,7 @@ import MeetingTypeList from "@/components/meetingTypeList";
 import { Button } from "@nextui-org/button";
 import { useRouter } from "next/navigation";
 import React from "react";
+import Clock from "react-live-clock";
 
 const Home = () => {
   const router = useRouter();
@@ -40,7 +41,11 @@ const Home = () => {
           </h2>
           <div className="flex flex-col gap-2">
             <h1 className="text-5xl font-extrabold lg:text-7xl uppercase">
-              {time}
+              <Clock
+                format={"h:mm"}
+                // style={{ fontSize: "1.5em" }}
+                ticking={true}
+              />
             </h1>
             <p className="text-lg font-medium text-sky-1">{date}</p>
           </div>
