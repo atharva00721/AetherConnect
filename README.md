@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AetherConnect
 
-## Getting Started
+AetherConnect is a web-based video calling application designed to provide a seamless and interactive experience for users. Built using **Next.js**, **Tailwind CSS**, **Clerk**, and **StreamAPI**, this application allows users to connect through video calls with a range of features.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Schedule a Meeting**: Easily schedule meetings at your convenience.
+- **Record Meetings**: Capture meetings for future reference and review.
+- **Emoji Reactions**: React to discussions in real-time with fun emoji reactions.
+- **Chat During Meeting**: Communicate with participants through a built-in chat feature.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend Framework**: 
+  - [Next.js](https://nextjs.org/)
+  - [Tailwind CSS](https://tailwindcss.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Authentication**: 
+  - [Clerk](https://clerk.dev/)
 
-## Learn More
+- **Video & Chat API**: 
+  - [StreamAPI](https://getstream.io/)
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run the application locally, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/atharva00721/AetherConnect.git
+   ```
 
-## Deploy on Vercel
+2. Navigate to the project directory:
+   ```bash
+   cd AetherConnect
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Install the required dependencies:
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and go to `http://localhost:3000`.
+
+## Usage
+
+Once the application is running, you can:
+
+- Sign up or log in using Clerk.
+- Schedule a meeting using the scheduling feature.
+- Join meetings, chat with participants, and react using emojis.
